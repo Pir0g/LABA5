@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>Лабораторная работа 1</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <a href="LABA5.html">Основаная страница</a>
+            <a href="page2.html">Позиционирование элементов</a>
+            <a href="table.html">Таблица</a>
+        </div>
+        <h1>Лучшие игры всех времен my opinion</h1>
+        <table >
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Название</th>
+                    <th>Жанр</th>
+                    <th>Студия</th>
+                    <th>Любимый персонаж</th>
+                </tr>
+            </thead>
+            <tbody id = mainTable>
+                <tr>
+                    <td>1</td>
+                    <td>ред дед редемшон2</td>
+                    <td>экшн адвенчер</td>
+                    <td>рокстар</td>
+                    <td>артурка морган</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>дес стрендинг</td>
+                    <td>экшн</td>
+                    <td>каджима прадакшнс</td>
+                    <td>мадс миккельсен</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>киберпанк7702</td>
+                    <td>экшн рпдж</td>
+                    <td>сд прожект ред</td>
+                    <td>жонни сильверхенд</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>зе ласт оф ас2</td>
+                    <td>стелс-экшн сурвивал хоррор</td>
+                    <td>ноти дог</td>
+                    <td>эбби</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>резидент ивл =5</td>
+                    <td>шутер сурвивал хорор</td>
+                    <td>капкан</td>
+                    <td>альберт вискееп</td>
+                </tr>
+            </tbody>
+        </table>
+        <form id="form">      
+            <div class="label">
+                <label for="number">№:</label><br>
+                <input type="text" id="number" name="number" value=""><br>
+
+                <label for="name">Название:</label><br>
+                <input type="text" id="name" name="name" value=""><br>
+
+                <label for="genre">Жанр:</label><br>
+                <input type="text" id="genre" name="genre" value=""><br>
+
+                <label for="studio">Студия:</label><br>
+                <input type="text" id="studio" name="studio" value=""><br>
+
+                <label for="fav">Любимый персонаж:</label><br>
+                <input type="text" id="fav" name="fav" value=""><br>
+                <input type="submit" value="Отправить" style="margin-top: 20px; padding: 5px;font-family: 'DaMiOne';background-color:#00c44b; " onclick="add()">
+        </div>   
+    </form>
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const number = document.getElementById('number').value;
+            const name = document.getElementById('name').value;
+            const genre = document.getElementById('genre').value;
+            const studio = document.getElementById('studio').value;
+            const fav = document.getElementById('fav').value;
+            const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${number}</td>
+            <td>${name}</td>               
+            <td>${genre}</td>
+            <td>${studio}</td>
+            <td>${fav}</td>
+        `;
+            newRow.classList.add('tr:nth-child(odd)');
+            document.getElementById('mainTable').appendChild(newRow);
+        document.getElementById('form').reset();
+        });
+    </script>       
+    </body>
+</html>
